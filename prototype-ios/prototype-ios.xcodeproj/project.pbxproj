@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		59C539782B98477E00BA01CD /* prototype_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539772B98477E00BA01CD /* prototype_iosApp.swift */; };
-		59C5397A2B98477E00BA01CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539792B98477E00BA01CD /* ContentView.swift */; };
 		59C5397C2B98477F00BA01CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59C5397B2B98477F00BA01CD /* Assets.xcassets */; };
 		59C5397F2B98477F00BA01CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59C5397E2B98477F00BA01CD /* Preview Assets.xcassets */; };
 		59C539892B98478000BA01CD /* prototype_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539882B98478000BA01CD /* prototype_iosTests.swift */; };
 		59C539932B98478000BA01CD /* prototype_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539922B98478000BA01CD /* prototype_iosUITests.swift */; };
 		59C539952B98478000BA01CD /* prototype_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539942B98478000BA01CD /* prototype_iosUITestsLaunchTests.swift */; };
+		59C539A22B9857E100BA01CD /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539A12B9857E100BA01CD /* SpeechRecognizer.swift */; };
+		59C539A52B986D9E00BA01CD /* TextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539A42B986D9E00BA01CD /* TextProcessor.swift */; };
+		59C539A92B9876C800BA01CD /* WikipediaAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539A82B9876C800BA01CD /* WikipediaAPIManager.swift */; };
+		59C539AB2B9886F800BA01CD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539AA2B9886F800BA01CD /* MainViewModel.swift */; };
+		59C539AD2B98876200BA01CD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539AC2B98876200BA01CD /* MainView.swift */; };
+		59C539AF2B98A2A300BA01CD /* KeywordLinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539AE2B98A2A300BA01CD /* KeywordLinkViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +41,6 @@
 /* Begin PBXFileReference section */
 		59C539742B98477E00BA01CD /* prototype-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "prototype-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C539772B98477E00BA01CD /* prototype_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototype_iosApp.swift; sourceTree = "<group>"; };
-		59C539792B98477E00BA01CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		59C5397B2B98477F00BA01CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59C5397E2B98477F00BA01CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		59C539842B98478000BA01CD /* prototype-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "prototype-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +48,14 @@
 		59C5398E2B98478000BA01CD /* prototype-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "prototype-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C539922B98478000BA01CD /* prototype_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototype_iosUITests.swift; sourceTree = "<group>"; };
 		59C539942B98478000BA01CD /* prototype_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototype_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		59C539A12B9857E100BA01CD /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		59C539A32B98592E00BA01CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		59C539A42B986D9E00BA01CD /* TextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProcessor.swift; sourceTree = "<group>"; };
+		59C539A82B9876C800BA01CD /* WikipediaAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPIManager.swift; sourceTree = "<group>"; };
+		59C539AA2B9886F800BA01CD /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		59C539AC2B98876200BA01CD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		59C539AE2B98A2A300BA01CD /* KeywordLinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordLinkViewModel.swift; sourceTree = "<group>"; };
+		59D500A32B99C8A300ECF95F /* NaturalLanguage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NaturalLanguage.framework; path = System/Library/Frameworks/NaturalLanguage.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +90,7 @@
 				59C539872B98478000BA01CD /* prototype-iosTests */,
 				59C539912B98478000BA01CD /* prototype-iosUITests */,
 				59C539752B98477E00BA01CD /* Products */,
+				59D500A22B99C8A300ECF95F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,8 +107,14 @@
 		59C539762B98477E00BA01CD /* prototype-ios */ = {
 			isa = PBXGroup;
 			children = (
+				59C539A32B98592E00BA01CD /* Info.plist */,
+				59C539A12B9857E100BA01CD /* SpeechRecognizer.swift */,
+				59C539A82B9876C800BA01CD /* WikipediaAPIManager.swift */,
+				59C539A42B986D9E00BA01CD /* TextProcessor.swift */,
 				59C539772B98477E00BA01CD /* prototype_iosApp.swift */,
-				59C539792B98477E00BA01CD /* ContentView.swift */,
+				59C539AA2B9886F800BA01CD /* MainViewModel.swift */,
+				59C539AC2B98876200BA01CD /* MainView.swift */,
+				59C539AE2B98A2A300BA01CD /* KeywordLinkViewModel.swift */,
 				59C5397B2B98477F00BA01CD /* Assets.xcassets */,
 				59C5397D2B98477F00BA01CD /* Preview Content */,
 			);
@@ -125,6 +144,14 @@
 				59C539942B98478000BA01CD /* prototype_iosUITestsLaunchTests.swift */,
 			);
 			path = "prototype-iosUITests";
+			sourceTree = "<group>";
+		};
+		59D500A22B99C8A300ECF95F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59D500A32B99C8A300ECF95F /* NaturalLanguage.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +284,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59C5397A2B98477E00BA01CD /* ContentView.swift in Sources */,
+				59C539AB2B9886F800BA01CD /* MainViewModel.swift in Sources */,
+				59C539AD2B98876200BA01CD /* MainView.swift in Sources */,
 				59C539782B98477E00BA01CD /* prototype_iosApp.swift in Sources */,
+				59C539AF2B98A2A300BA01CD /* KeywordLinkViewModel.swift in Sources */,
+				59C539A92B9876C800BA01CD /* WikipediaAPIManager.swift in Sources */,
+				59C539A22B9857E100BA01CD /* SpeechRecognizer.swift in Sources */,
+				59C539A52B986D9E00BA01CD /* TextProcessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,8 +454,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"prototype-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = G3SP7F6JNW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "prototype-ios/Info.plist";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,8 +486,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"prototype-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = G3SP7F6JNW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "prototype-ios/Info.plist";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

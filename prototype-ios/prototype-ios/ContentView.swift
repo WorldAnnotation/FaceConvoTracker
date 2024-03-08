@@ -8,17 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = MainViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            TextEditor(text: $viewModel.transcribedText)
+                .font(.body)
+                .padding()
+            
+            Button(action: {
+                viewModel.toggleRecording()
+            }) {
+                Text(viewModel.isRecording ? "停止" : "録音開始")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(viewModel.isRecording ? Color.red : Color.green)
+                    .cornerRadius(8)
+            }
         }
-        .padding()
     }
-}
-
-#Preview {
-    ContentView()
 }
