@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		01F73836E34CCFFA918E9EEC /* Pods_prototype_ios_prototype_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047C91BF8AD04EA9EF3DFD24 /* Pods_prototype_ios_prototype_iosUITests.framework */; };
+		599170762B9B9C2500E3FABC /* mecab in Frameworks */ = {isa = PBXBuildFile; productRef = 599170752B9B9C2500E3FABC /* mecab */; };
+		599170772B9B9C7100E3FABC /* mecab in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 599170752B9B9C2500E3FABC /* mecab */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5991707D2B9B9DD900E3FABC /* dicdir in Resources */ = {isa = PBXBuildFile; fileRef = 5991707C2B9B9DD900E3FABC /* dicdir */; };
+		5991707F2B9B9E0200E3FABC /* Tokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991707E2B9B9E0200E3FABC /* Tokenizer.swift */; };
+		599170812B9B9E2300E3FABC /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599170802B9B9E2200E3FABC /* Token.swift */; };
+		599170832B9B9E3800E3FABC /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599170822B9B9E3800E3FABC /* Collection+SafeSubscript.swift */; };
 		59C539782B98477E00BA01CD /* prototype_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539772B98477E00BA01CD /* prototype_iosApp.swift */; };
 		59C5397C2B98477F00BA01CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59C5397B2B98477F00BA01CD /* Assets.xcassets */; };
 		59C5397F2B98477F00BA01CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59C5397E2B98477F00BA01CD /* Preview Assets.xcassets */; };
@@ -18,7 +24,10 @@
 		59C539A52B986D9E00BA01CD /* TextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539A42B986D9E00BA01CD /* TextProcessor.swift */; };
 		59C539AB2B9886F800BA01CD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539AA2B9886F800BA01CD /* MainViewModel.swift */; };
 		59C539AD2B98876200BA01CD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C539AC2B98876200BA01CD /* MainView.swift */; };
-		59D500A62B9AE7B300ECF95F /* WikiopediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D500A52B9AE7B300ECF95F /* WikiopediaManager.swift */; };
+		59CF344F2B9B7C1000C3CAB3 /* GPT4Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CF344E2B9B7C1000C3CAB3 /* GPT4Manager.swift */; };
+		59CF34512B9B7D2E00C3CAB3 /* WikipediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CF34502B9B7D2E00C3CAB3 /* WikipediaManager.swift */; };
+		59CF34542B9B7FDD00C3CAB3 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 59CF34532B9B7FDD00C3CAB3 /* OpenAIKit */; };
+		59CF34562B9B821700C3CAB3 /* GroqManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CF34552B9B821700C3CAB3 /* GroqManager.swift */; };
 		67DC0B20698073CD05A39E25 /* Pods_prototype_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A356529AD9541A2A21FD5DED /* Pods_prototype_iosTests.framework */; };
 		F03A22D19DE26CB0E9B08D09 /* Pods_prototype_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F187C91D61769B648FF954C /* Pods_prototype_ios.framework */; };
 /* End PBXBuildFile section */
@@ -40,11 +49,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		599170782B9B9C7100E3FABC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				599170772B9B9C7100E3FABC /* mecab in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		047C91BF8AD04EA9EF3DFD24 /* Pods_prototype_ios_prototype_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_prototype_ios_prototype_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E9412BF24E8E6BD87C97AE2 /* Pods-prototype-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototype-iosTests.release.xcconfig"; path = "Target Support Files/Pods-prototype-iosTests/Pods-prototype-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		4B0744C1A0300B8DBF96D6E5 /* Pods-prototype-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototype-ios.release.xcconfig"; path = "Target Support Files/Pods-prototype-ios/Pods-prototype-ios.release.xcconfig"; sourceTree = "<group>"; };
 		549BF7859D1CCEBA498EDCD6 /* Pods-prototype-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototype-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-prototype-iosTests/Pods-prototype-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5991707C2B9B9DD900E3FABC /* dicdir */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dicdir; path = "../../../../../Downloads/MecabDemo-master/MecabDemo/Resources/dicdir"; sourceTree = "<group>"; };
+		5991707E2B9B9E0200E3FABC /* Tokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tokenizer.swift; path = "../../../../../Downloads/MecabDemo-master/MecabDemo/Tokenizer/Tokenizer.swift"; sourceTree = "<group>"; };
+		599170802B9B9E2200E3FABC /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Token.swift; path = "../../../../../Downloads/MecabDemo-master/MecabDemo/Tokenizer/Token.swift"; sourceTree = "<group>"; };
+		599170822B9B9E3800E3FABC /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Collection+SafeSubscript.swift"; path = "../../../../../Downloads/MecabDemo-master/MecabDemo/Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		59C539742B98477E00BA01CD /* prototype-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "prototype-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C539772B98477E00BA01CD /* prototype_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototype_iosApp.swift; sourceTree = "<group>"; };
 		59C5397B2B98477F00BA01CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,8 +86,10 @@
 		59C539A42B986D9E00BA01CD /* TextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProcessor.swift; sourceTree = "<group>"; };
 		59C539AA2B9886F800BA01CD /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		59C539AC2B98876200BA01CD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		59CF344E2B9B7C1000C3CAB3 /* GPT4Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPT4Manager.swift; sourceTree = "<group>"; };
+		59CF34502B9B7D2E00C3CAB3 /* WikipediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaManager.swift; sourceTree = "<group>"; };
+		59CF34552B9B821700C3CAB3 /* GroqManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroqManager.swift; sourceTree = "<group>"; };
 		59D500A32B99C8A300ECF95F /* NaturalLanguage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NaturalLanguage.framework; path = System/Library/Frameworks/NaturalLanguage.framework; sourceTree = SDKROOT; };
-		59D500A52B9AE7B300ECF95F /* WikiopediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiopediaManager.swift; sourceTree = "<group>"; };
 		5C0E7AB9430FF5D2AE36E663 /* Pods-prototype-ios-prototype-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototype-ios-prototype-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-prototype-ios-prototype-iosUITests/Pods-prototype-ios-prototype-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F1D7D375D918F6C2174B0EA /* Pods-prototype-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototype-ios.debug.xcconfig"; path = "Target Support Files/Pods-prototype-ios/Pods-prototype-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		7F187C91D61769B648FF954C /* Pods_prototype_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_prototype_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +102,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				599170762B9B9C2500E3FABC /* mecab in Frameworks */,
 				F03A22D19DE26CB0E9B08D09 /* Pods_prototype_ios.framework in Frameworks */,
+				59CF34542B9B7FDD00C3CAB3 /* OpenAIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,12 +154,18 @@
 			children = (
 				59C539A32B98592E00BA01CD /* Info.plist */,
 				59C539A12B9857E100BA01CD /* SpeechRecognizer.swift */,
-				59D500A52B9AE7B300ECF95F /* WikiopediaManager.swift */,
+				59CF344E2B9B7C1000C3CAB3 /* GPT4Manager.swift */,
+				59CF34552B9B821700C3CAB3 /* GroqManager.swift */,
+				59CF34502B9B7D2E00C3CAB3 /* WikipediaManager.swift */,
 				59C539A42B986D9E00BA01CD /* TextProcessor.swift */,
 				59C539772B98477E00BA01CD /* prototype_iosApp.swift */,
 				59C539AA2B9886F800BA01CD /* MainViewModel.swift */,
 				59C539AC2B98876200BA01CD /* MainView.swift */,
+				599170802B9B9E2200E3FABC /* Token.swift */,
+				5991707E2B9B9E0200E3FABC /* Tokenizer.swift */,
+				599170822B9B9E3800E3FABC /* Collection+SafeSubscript.swift */,
 				59C5397B2B98477F00BA01CD /* Assets.xcassets */,
+				5991707C2B9B9DD900E3FABC /* dicdir */,
 				59C5397D2B98477F00BA01CD /* Preview Content */,
 			);
 			path = "prototype-ios";
@@ -195,12 +232,17 @@
 				59C539712B98477E00BA01CD /* Frameworks */,
 				59C539722B98477E00BA01CD /* Resources */,
 				80F049604246FD39C35117DF /* [CP] Embed Pods Frameworks */,
+				599170782B9B9C7100E3FABC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "prototype-ios";
+			packageProductDependencies = (
+				59CF34532B9B7FDD00C3CAB3 /* OpenAIKit */,
+				599170752B9B9C2500E3FABC /* mecab */,
+			);
 			productName = "prototype-ios";
 			productReference = 59C539742B98477E00BA01CD /* prototype-ios.app */;
 			productType = "com.apple.product-type.application";
@@ -276,6 +318,10 @@
 				Base,
 			);
 			mainGroup = 59C5396B2B98477E00BA01CD;
+			packageReferences = (
+				59CF34522B9B7FDD00C3CAB3 /* XCRemoteSwiftPackageReference "OpenAIKit" */,
+				599170742B9B9C2500E3FABC /* XCRemoteSwiftPackageReference "mecab" */,
+			);
 			productRefGroup = 59C539752B98477E00BA01CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -292,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5991707D2B9B9DD900E3FABC /* dicdir in Resources */,
 				59C5397F2B98477F00BA01CD /* Preview Assets.xcassets in Resources */,
 				59C5397C2B98477F00BA01CD /* Assets.xcassets in Resources */,
 			);
@@ -421,12 +468,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59CF34562B9B821700C3CAB3 /* GroqManager.swift in Sources */,
+				599170812B9B9E2300E3FABC /* Token.swift in Sources */,
 				59C539AB2B9886F800BA01CD /* MainViewModel.swift in Sources */,
 				59C539AD2B98876200BA01CD /* MainView.swift in Sources */,
 				59C539782B98477E00BA01CD /* prototype_iosApp.swift in Sources */,
-				59D500A62B9AE7B300ECF95F /* WikiopediaManager.swift in Sources */,
 				59C539A22B9857E100BA01CD /* SpeechRecognizer.swift in Sources */,
 				59C539A52B986D9E00BA01CD /* TextProcessor.swift in Sources */,
+				599170832B9B9E3800E3FABC /* Collection+SafeSubscript.swift in Sources */,
+				59CF34512B9B7D2E00C3CAB3 /* WikipediaManager.swift in Sources */,
+				5991707F2B9B9E0200E3FABC /* Tokenizer.swift in Sources */,
+				59CF344F2B9B7C1000C3CAB3 /* GPT4Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +818,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		599170742B9B9C2500E3FABC /* XCRemoteSwiftPackageReference "mecab" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/landonepps/mecab";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		59CF34522B9B7FDD00C3CAB3 /* XCRemoteSwiftPackageReference "OpenAIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marcodotio/OpenAIKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		599170752B9B9C2500E3FABC /* mecab */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 599170742B9B9C2500E3FABC /* XCRemoteSwiftPackageReference "mecab" */;
+			productName = mecab;
+		};
+		59CF34532B9B7FDD00C3CAB3 /* OpenAIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 59CF34522B9B7FDD00C3CAB3 /* XCRemoteSwiftPackageReference "OpenAIKit" */;
+			productName = OpenAIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 59C5396C2B98477E00BA01CD /* Project object */;
 }

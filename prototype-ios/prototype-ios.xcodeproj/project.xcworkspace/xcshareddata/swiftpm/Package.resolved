@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "mecab",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/landonepps/mecab",
+      "state" : {
+        "revision" : "9d22dbb57e4845c8fcb0abc1ee482afc46ba9da7",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "openaikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marcodotio/OpenAIKit",
+      "state" : {
+        "revision" : "1ae438e665433273474d330a74241a1c55742a79",
+        "version" : "2.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}
