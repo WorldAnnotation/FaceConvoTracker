@@ -9,32 +9,22 @@ import Foundation
 import Combine
 
 class MainViewModel: ObservableObject {
-    private let speechRecognizer = SpeechRecognizer()
-    private let textProcessor = TextProcessor.shared
-    private var cancellables = Set<AnyCancellable>()
+    @Published var recognizedText: String = ""
+    @Published var isRecording: Bool = false
+    @Published var wikipediaSearchResults: [String: String] = [:]
     
-    @Published var isRecording = false
-    @Published var recognizedText = "" {
-        didSet {
-            updateKeywords()
-        }
-    }
-    @Published var keywords = [String]()
+    private var cancellables: Set<AnyCancellable> = []
+    private let speechRecognizer = SpeechRecognizer()
+    private let wikipediaManager = WikipediaManager()
     
     var isRecognitionAvailable: Bool {
         speechRecognizer.isRecognitionAvailable
     }
     
-    private var previousResult = ""
-    
     init() {
-        speechRecognizer.onRecognitionResult = { [weak self] result in
-            DispatchQueue.main.async {
-                // 前回の結果と重複していない部分のみ追加
-                let newText = String(result.dropFirst(self?.previousResult.count ?? 0))
-                self?.recognizedText += newText
-                self?.previousResult = result
-            }
+        speechRecognizer.onRecognitionResult = { [weak self] text in
+            self?.recognizedText = text
+            self?.performWikipediaSearch(for: text)
         }
     }
     
@@ -44,10 +34,29 @@ class MainViewModel: ObservableObject {
     
     func stopRecording() {
         speechRecognizer.stopListening()
-        previousResult = ""
     }
     
-    private func updateKeywords() {
-        keywords = textProcessor.extractKeywords(from: recognizedText)
+    private func performWikipediaSearch(for text: String) {
+        let keywords = TextProcessor.shared.extractKeywords(from: text)
+        
+        // 既存の検索結果をクリア
+        wikipediaSearchResults = [:]
+        
+        keywords.forEach { keyword in
+            wikipediaManager.searchWikipedia(for: keyword)
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] completion in
+                    if case .failure(let error) = completion {
+                        print("Error: \(error.localizedDescription)")
+                        // エラー時は空の結果を設定
+                        self?.wikipediaSearchResults[keyword] = "No summary found."
+                    }
+                } receiveValue: { [weak self] summary in
+                    // 検索結果が空の場合は、適切なメッセージを設定
+                    let result = summary.isEmpty ? "No summary found." : summary
+                    self?.wikipediaSearchResults[keyword] = result
+                }
+                .store(in: &cancellables)
+        }
     }
 }
