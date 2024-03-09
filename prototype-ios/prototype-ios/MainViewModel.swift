@@ -158,21 +158,83 @@
 //        }
 //    }
 //}
+//import Foundation
+//import Combine
+//
+//class MainViewModel: ObservableObject {
+//    @Published var recognizedText: String = "" {
+//        didSet {
+//            performExplanationGeneration(for: recognizedText)
+//        }
+//    }
+//    @Published var explanationResults: [String: String] = [:]
+//    
+//    private var cancellables: Set<AnyCancellable> = []
+//    private let gpt4Manager = GPT4Manager()
+//    
+//    init() {}
+//    
+//    private func performExplanationGeneration(for text: String) {
+//        do {
+//            let keywords = try TextProcessor.shared.extractKeywords(from: text)
+//            
+//            explanationResults = [:] // 既存の結果をクリア
+//            
+//            keywords.forEach { keyword in
+//                gpt4Manager.generateExplanation(for: keyword)
+//                    .receive(on: DispatchQueue.main)
+//                    .sink { [weak self] completion in
+//                        switch completion {
+//                        case .failure(let error):
+//                            print("Error: \(error.localizedDescription)")
+//                            self?.explanationResults[keyword] = "No explanation found."
+//                        case .finished:
+//                            break
+//                        }
+//                    } receiveValue: { [weak self] explanation in
+//                        self?.explanationResults[keyword] = explanation
+//                    }
+//                    .store(in: &cancellables)
+//            }
+//        } catch TextProcessorError.noKeywordsFound {
+//            explanationResults = [:]
+//            print("No keywords found in the text.")
+//        } catch {
+//            explanationResults = [:]
+//            print("Error: \(error.localizedDescription)")
+//        }
+//    }
+//}
 import Foundation
 import Combine
 
 class MainViewModel: ObservableObject {
-    @Published var recognizedText: String = "" {
-        didSet {
-            performExplanationGeneration(for: recognizedText)
-        }
-    }
+    @Published var recognizedText: String = ""
     @Published var explanationResults: [String: String] = [:]
+    @Published var isRecording: Bool = false
     
     private var cancellables: Set<AnyCancellable> = []
     private let gpt4Manager = GPT4Manager()
+    private let speechRecognizer = SpeechRecognizer()
     
-    init() {}
+    var isRecognitionAvailable: Bool {
+        speechRecognizer.isRecognitionAvailable
+    }
+    
+    init() {
+        speechRecognizer.onRecognitionResult = { [weak self] text in
+            self?.recognizedText = text
+            self?.performExplanationGeneration(for: text)
+        }
+    }
+    
+    func startRecording() throws {
+        try speechRecognizer.startListening()
+    }
+    
+    func stopRecording() {
+        speechRecognizer.stopListening()
+    }
     
     private func performExplanationGeneration(for text: String) {
         do {

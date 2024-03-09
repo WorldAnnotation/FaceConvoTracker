@@ -93,6 +93,96 @@
 //    }
 //}
 
+//import SwiftUI
+//import Combine
+//
+//struct MainView: View {
+//    @StateObject private var viewModel = MainViewModel()
+//    
+//    var body: some View {
+//        VStack {
+//            // ユーザー入力テキスト
+//            TextEditor(text: $viewModel.recognizedText)
+//                .padding()
+//                .frame(minHeight: 50) // テキストエリアの最小高さを指定
+//                .border(Color.gray, width: 1) // ボーダーを追加して視覚的に区別
+//                .onChange(of: viewModel.recognizedText) { newText in
+//                    // テキストが変更されるたびに単語の説明生成をトリガー
+//                    // ViewModel内でrecognizedTextの変更を監視し、説明生成が実行されるため、ここでは特にアクションは不要
+//                }
+//            
+//            Divider()
+//            
+//            // 単語の説明結果の表示
+//            ScrollView {
+//                VStack(alignment: .leading) {
+//                    ForEach(viewModel.explanationResults.keys.sorted(), id: \.self) { key in
+//                        if let explanation = viewModel.explanationResults[key] {
+//                            Text("\(key): \(explanation)")
+//                                .padding()
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        .onTapGesture {
+//            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+//        }
+//    }
+//}
+//import SwiftUI
+//import Combine
+//
+//struct MainView: View {
+//    @StateObject private var viewModel = MainViewModel()
+//    
+//    var body: some View {
+//        VStack {
+//            // 音声認識結果の表示
+//            Text(viewModel.recognizedText)
+//                .padding()
+//                .frame(minHeight: 50)
+//                .border(Color.gray, width: 1)
+//            
+//            // 録音開始/停止ボタン
+//            Button(action: {
+//                if viewModel.isRecording {
+//                    viewModel.stopRecording()
+//                } else {
+//                    do {
+//                        try viewModel.startRecording()
+//                    } catch {
+//                        print("Error starting recording: \(error.localizedDescription)")
+//                    }
+//                }
+//            }) {
+//                Text(viewModel.isRecording ? "Stop Recording" : "Start Recording")
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .background(viewModel.isRecording ? Color.red : Color.blue)
+//                    .cornerRadius(10)
+//            }
+//            .disabled(!viewModel.isRecognitionAvailable)
+//            
+//            Divider()
+//            
+//            // 単語の説明結果の表示
+//            ScrollView {
+//                VStack(alignment: .leading) {
+//                    ForEach(viewModel.explanationResults.keys.sorted(), id: \.self) { key in
+//                        if let explanation = viewModel.explanationResults[key] {
+//                            Text("\(key): \(explanation)")
+//                                .padding()
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        .onAppear {
+//            viewModel.isRecording = false
+//        }
+//    }
+//}
 import SwiftUI
 import Combine
 
@@ -101,15 +191,27 @@ struct MainView: View {
     
     var body: some View {
         VStack {
-            // ユーザー入力テキスト
-            TextEditor(text: $viewModel.recognizedText)
+            // 音声認識結果の表示
+            Text(viewModel.recognizedText)
                 .padding()
-                .frame(minHeight: 50) // テキストエリアの最小高さを指定
-                .border(Color.gray, width: 1) // ボーダーを追加して視覚的に区別
-                .onChange(of: viewModel.recognizedText) { newText in
-                    // テキストが変更されるたびに単語の説明生成をトリガー
-                    // ViewModel内でrecognizedTextの変更を監視し、説明生成が実行されるため、ここでは特にアクションは不要
+                .frame(minHeight: 50)
+                .border(Color.gray, width: 1)
+            
+            // 録音開始/停止トグル
+            Toggle("Recording", isOn: $viewModel.isRecording)
+                .padding()
+                .onChange(of: viewModel.isRecording) { isRecording in
+                    if isRecording {
+                        do {
+                            try viewModel.startRecording()
+                        } catch {
+                            print("Error starting recording: \(error.localizedDescription)")
+                        }
+                    } else {
+                        viewModel.stopRecording()
+                    }
                 }
+                .disabled(!viewModel.isRecognitionAvailable)
             
             Divider()
             
@@ -125,8 +227,8 @@ struct MainView: View {
                 }
             }
         }
-        .onTapGesture {
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        .onAppear {
+            viewModel.isRecording = false
         }
     }
 }
