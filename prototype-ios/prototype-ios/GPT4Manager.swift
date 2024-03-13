@@ -63,6 +63,7 @@ import Combine
 
 class GPT4Manager {
     func generateExplanation(for keyword: String) -> AnyPublisher<String, Error> {
+        let apiKey =\(ProcessInfo.processInfo.environment["API_KEY"] ?? "")
         let urlString = "https://api.openai.com/v1/chat/completions"
         guard let url = URL(string: urlString) else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
